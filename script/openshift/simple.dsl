@@ -4,7 +4,7 @@ openshiftBuild(buildConfig: 'money-tracker', showBuildLogs: 'true')
 stage 'deploy dev'
 openshiftVerifyDeployment(deploymentConfig: 'money-tracker')
 stage 'test dev'
-git credentialsId: 'ned-scmsecret', url: 'https://github.com/naoud/money-tracker.git'
+git credentialsId: 'ned-scmsecret', url: 'https://github.com/dennisstritzke/money-tracker.git'
 sh 'mvn clean package -DskipTests'
 sh 'mvn failsafe:integration-test'
 stage 'promot to prod'
